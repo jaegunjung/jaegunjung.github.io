@@ -1,121 +1,108 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
-
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+    <div
+      style={{
+        fontFamily: "Arial, sans-serif",
+        maxWidth: "900px",
+        margin: "0 auto",
+        padding: "40px",
+        lineHeight: "1.6",
+      }}
+    >
+      <header style={{ marginBottom: "60px" }}>
+        <h1 style={{ fontSize: "48px", marginBottom: "10px" }}>
+          Jaegun Jung
+        </h1>
+
+        <p style={{ fontSize: "22px", color: "#555" }}>
+          Senior Data Engineer
+        </p>
+
+        <p>
+          I build scalable analytics systems, operational tooling,
+          and data pipelines focused on reliability and automation.
+        </p>
+
+        <div style={{ marginTop: "20px" }}>
+          <a href="https://github.com/jaegunjung">
+            GitHub
+          </a>
+          {" | "}
+          <a href="mailto:jjg0412@gmail.com">
+            Email
+          </a>
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
+      </header>
+
+      <section style={{ marginBottom: "50px" }}>
+        <h2>About</h2>
+
+        <p>
+          Data engineer with experience in analytics platforms,
+          operations tooling, AWS pipelines, manufacturing systems,
+          and scalable data infrastructure.
+        </p>
+
+        <p>
+          Currently focused on AI-enabled workflows,
+          machine learning systems, and modern data applications.
+        </p>
       </section>
 
-      <div className="ticks"></div>
+      <section style={{ marginBottom: "50px" }}>
+        <h2>Projects</h2>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
+        <ul>
+          <li>
+            <strong>Ops Tooling Platform</strong> —
+            Built operational tools and validation workflows
+            to reduce pipeline failures and improve reliability.
+          </li>
+
+          <li>
+            <strong>Crypto Data Analysis</strong> —
+            Python-based crypto and stock analytics project.
+          </li>
+
+          <li>
+            <strong>Django Personal Website</strong> —
+            Early personal website project built with Django.
+          </li>
+
+          <li>
+            <strong>AWS / ML Learning</strong> —
+            Exploring scalable ML systems and cloud architectures.
+          </li>
+        </ul>
       </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      <section style={{ marginBottom: "50px" }}>
+        <h2>Skills</h2>
+
+        <p>
+          Python, SQL, AWS, React, Django, Data Engineering,
+          Analytics, ETL Pipelines, Machine Learning
+        </p>
+      </section>
+
+      <section>
+        <h2>Links</h2>
+
+        <ul>
+          <li>
+            <a href="https://github.com/jaegunjung/cda">
+              Crypto Data Analysis
+            </a>
+          </li>
+
+          <li>
+            <a href="https://github.com/jaegunjung/jjung_django">
+              Old Django Website
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
   )
 }
 
