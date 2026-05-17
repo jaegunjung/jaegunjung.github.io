@@ -83,7 +83,10 @@ function App() {
           </p>
           <div className="link-row" aria-label="Primary links">
             <a href="https://github.com/jaegunjung">GitHub</a>
-            <a href="/resume.html">Resume</a>
+            <a href="/resume.html">View Resume</a>
+            <a href="/jaegun-jung-resume-may-2026.docx" download>
+              Download Resume
+            </a>
             <a href="mailto:jjg0412@gmail.com">Email</a>
             <a href="https://jjg0412.wixsite.com/website">Archive Site</a>
           </div>
