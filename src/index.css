@@ -245,13 +245,25 @@ h3 {
   gap: 10px;
 }
 
-.skill-list span {
+.skill-pill {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  gap: 8px;
   padding: 7px 12px;
   border: 1px solid rgba(184, 111, 25, 0.32);
   border-radius: 999px;
   background: #fff7eb;
   color: #5b3b12;
   font-weight: 700;
+  line-height: 1;
+}
+
+.skill-pill svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  color: var(--accent-strong);
 }
 
 @media (max-width: 820px) {
