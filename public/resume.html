@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Resume for Jaegun Jung, Staff Data Engineer focused on AI-enabled data infrastructure."
+    />
+    <title>Jaegun Jung | Resume</title>
+    <style>
+      :root {
+        --bg: #fbfaf7;
+        --surface: #ffffff;
+        --text: #3f4542;
+        --text-strong: #18201c;
+        --muted: #69736e;
+        --border: #d9ded9;
+        --accent: #1d6f73;
+        --accent-strong: #0e4f56;
+        --surface-muted: #f2f5f3;
+        --gold: #b86f19;
+        --sans: Inter, ui-sans-serif, system-ui, -apple-system,
+          BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+        font: 16px/1.58 var(--sans);
+        color: var(--text);
+        background: var(--bg);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      a {
+        color: var(--accent-strong);
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .resume-shell {
+        width: min(1040px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 42px 0 64px;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 44px;
+      }
+
+      .topbar a {
+        display: inline-flex;
+        min-height: 40px;
+        align-items: center;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 7px 14px;
+        background: var(--surface);
+        color: var(--text-strong);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 280px;
+        gap: 40px;
+        align-items: end;
+        padding-bottom: 34px;
+        border-bottom: 2px solid var(--text-strong);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: var(--text-strong);
+        line-height: 1.12;
+      }
+
+      h1 {
+        margin-bottom: 8px;
+        font-size: clamp(2.7rem, 8vw, 5.2rem);
+      }
+
+      .role {
+        margin-bottom: 18px;
+        color: var(--accent-strong);
+        font-size: 1.15rem;
+        font-weight: 800;
+      }
+
+      .summary {
+        max-width: 72ch;
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 1.04rem;
+      }
+
+      .contact-list {
+        display: grid;
+        gap: 8px;
+        justify-items: start;
+        padding: 18px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+      }
+
+      .resume-grid {
+        display: grid;
+        grid-template-columns: 260px minmax(0, 1fr);
+        gap: 36px;
+        padding: 34px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .resume-grid:last-child {
+        border-bottom: 0;
+      }
+
+      h2 {
+        margin-bottom: 0;
+        font-size: 1.25rem;
+      }
+
+      h3 {
+        margin-bottom: 4px;
+        font-size: 1.02rem;
+      }
+
+      .item {
+        display: grid;
+        gap: 10px;
+        margin-bottom: 28px;
+      }
+
+      .item:last-child {
+        margin-bottom: 0;
+      }
+
+      .meta {
+        margin-bottom: 0;
+        color: var(--muted);
+        font-weight: 700;
+      }
+
+      ul {
+        display: grid;
+        gap: 8px;
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      .skill-grid,
+      .cert-grid {
+        display: grid;
+        gap: 12px;
+      }
+
+      .skill-card,
+      .cert-card {
+        padding: 16px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+      }
+
+      .skill-card strong,
+      .cert-card strong {
+        color: var(--text-strong);
+      }
+
+      .skill-card p,
+      .cert-card p {
+        margin-bottom: 0;
+      }
+
+      .project-note {
+        padding: 18px;
+        border-left: 4px solid var(--gold);
+        background: var(--surface-muted);
+      }
+
+      .project-note p {
+        margin-bottom: 0;
+      }
+
+      @media print {
+        :root {
+          background: #ffffff;
+        }
+
+        .topbar {
+          display: none;
+        }
+
+        .resume-shell {
+          width: 100%;
+          padding: 0;
+        }
+
+        .resume-grid,
+        .hero {
+          break-inside: avoid;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .resume-shell {
+          width: min(100% - 28px, 680px);
+          padding-top: 24px;
+        }
+
+        .topbar,
+        .hero,
+        .resume-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .topbar {
+          display: grid;
+          margin-bottom: 28px;
+        }
+
+        .contact-list {
+          justify-items: stretch;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="resume-shell">
+      <nav class="topbar" aria-label="Resume navigation">
+        <a href="/">Home</a>
+        <a href="mailto:jjg0412@gmail.com">Contact</a>
+      </nav>
+
+      <header class="hero">
+        <div>
+          <h1>Jaegun Jung</h1>
+          <p class="role">Staff Data Engineer | AI-Enabled Data Infrastructure</p>
+          <p class="summary">
+            Staff-level Data Engineer with 15+ years of experience designing
+            scalable data platforms, operational analytics systems, and
+            production-grade ETL pipelines across cloud and enterprise
+            environments. Proven record improving data reliability, workflow
+            efficiency, and large-scale analytics through Python, SQL,
+            distributed data systems, and AI-assisted engineering workflows.
+          </p>
+        </div>
+
+        <address class="contact-list">
+          <span>Castro Valley, CA</span>
+          <a href="mailto:jjg0412@gmail.com">jjg0412@gmail.com</a>
+          <a href="tel:+14158588259">1-415-858-8259</a>
+          <a href="https://linkedin.com/in/jgjung">linkedin.com/in/jgjung</a>
+          <a href="https://github.com/jaegunjung">github.com/jaegunjung</a>
+        </address>
+      </header>
+
+      <section class="resume-grid">
+        <h2>Skills</h2>
+        <div class="skill-grid">
+          <article class="skill-card">
+            <p>
+              <strong>Core Technologies:</strong> Python, SQL, Spark,
+              Snowflake, AWS, ETL orchestration, data modeling, distributed
+              analytics systems, and operational analytics.
+            </p>
+          </article>
+          <article class="skill-card">
+            <p>
+              <strong>Databases:</strong> MS SQL Server, MySQL, and Snowflake,
+              including complex analytical querying and production-grade data
+              modeling.
+            </p>
+          </article>
+          <article class="skill-card">
+            <p>
+              <strong>Cloud Platforms:</strong> AWS DynamoDB, Lambda, data lake
+              and warehouse workflows, Glue, S3, EC2, EMR, CLI automation,
+              Azure App Service, DNS zones, App Service Domain, and App Service
+              plans.
+            </p>
+          </article>
+          <article class="skill-card">
+            <p>
+              <strong>Business Intelligence:</strong> Power BI dashboards,
+              complex visualizations, database connectivity, and hosted
+              interactive reporting.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="resume-grid">
+        <h2>Work History</h2>
+        <div>
+          <article class="item">
+            <div>
+              <h3>Senior Data Engineer</h3>
+              <p class="meta">EOS IT Solutions, Burlingame, CA | Apr 2024 - Current</p>
+            </div>
+            <ul>
+              <li>
+                Designed and maintained operational analytics pipelines and
+                dashboards using Meta's internal data ecosystem, including
+                Presto, Hive, and Scuba.
+              </li>
+              <li>
+                Automated ingestion and validation workflows integrating Google
+                Sheets, scheduled jobs, and internal tooling, reducing manual
+                intervention and pipeline failures by 50% or more.
+              </li>
+              <li>
+                Collaborated with engineers, product managers, and analysts to
+                define data requirements, optimize metrics reporting, and
+                improve operational observability.
+              </li>
+              <li>
+                Used AI-assisted engineering workflows to accelerate delivery
+                in unfamiliar Hack and React environments.
+              </li>
+            </ul>
+          </article>
+
+          <article class="item">
+            <div>
+              <h3>Senior Principal Data Engineer</h3>
+              <p class="meta">Enovix Corporation, Fremont, CA | Dec 2018 - Jan 2024</p>
+            </div>
+            <ul>
+              <li>
+                Led architecture and development of a large-scale Data
+                Aggregation Engine using Python and SQL Server for engineering
+                and manufacturing operations.
+              </li>
+              <li>
+                Redesigned legacy workflows and automated validation processes,
+                improving downstream analytics reliability and reducing manual
+                QA effort.
+              </li>
+              <li>
+                Built analytical pipelines and production ETL processes for
+                battery test analysis, KPI reporting, and business intelligence.
+              </li>
+              <li>
+                Partnered with engineering and business stakeholders to define
+                analytical metrics and operational reporting requirements.
+              </li>
+            </ul>
+          </article>
+
+          <article class="item">
+            <div>
+              <h3>Technical Lead</h3>
+              <p class="meta">Cisco from Infosys, San Jose, CA | Mar 2018 - Nov 2018</p>
+            </div>
+            <ul>
+              <li>
+                Developed internal data tooling and web interfaces within
+                Python Django frameworks to improve analytics visibility,
+                workflow efficiency, and operational management.
+              </li>
+            </ul>
+          </article>
+
+          <article class="item">
+            <div>
+              <h3>Senior Consultant</h3>
+              <p class="meta">Ramboll, Novato, CA | Oct 2008 - Mar 2018</p>
+            </div>
+            <ul>
+              <li>
+                Engineered Python scripts for model-result analysis, improving
+                data analysis throughput and reporting accuracy.
+              </li>
+              <li>
+                Authored and released CAMxtools, a Python post-processing
+                toolkit used by environmental modeling researchers.
+              </li>
+              <li>
+                Developed reusable analytical tooling for reproducible
+                large-scale environmental modeling workflows.
+              </li>
+              <li>
+                Implemented MySQL data population strategies using efficient
+                scripting for optimized storage and retrieval.
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="resume-grid">
+        <h2>Education</h2>
+        <div>
+          <article class="item">
+            <h3>Ph.D., Chemical Engineering</h3>
+            <p class="meta">Carnegie Mellon University | Aug 2003 - May 2008</p>
+          </article>
+          <article class="item">
+            <h3>B.S., Chemical Engineering</h3>
+            <p class="meta">Hanyang University, Seoul, Korea | Mar 1996 - Feb 2003</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="resume-grid">
+        <h2>Certifications</h2>
+        <div class="cert-grid">
+          <article class="cert-card">
+            <p><strong>AWS Certified Solutions Architect - Associate</strong>, expires Mar 2028</p>
+          </article>
+          <article class="cert-card">
+            <p><strong>AWS Certified Data Engineer - Associate</strong>, expires Oct 2027</p>
+          </article>
+          <article class="cert-card">
+            <p><strong>Snowflake SnowPro Core</strong>, issued Mar 2024, expires Feb 2028, Credential ID S0027930</p>
+          </article>
+          <article class="cert-card">
+            <p><strong>Coursera Machine Learning</strong>, issued Oct 2019, Credential ID LD972MEPJ28V</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="resume-grid">
+        <h2>AI & Workflow Optimization</h2>
+        <div class="project-note">
+          <p>
+            Applied AI-assisted engineering workflows to accelerate prototyping,
+            debugging, and cross-functional development across data and
+            application layers. Continuing self-directed study in LLM systems,
+            workflow automation, and retrieval-augmented architectures.
+          </p>
+        </div>
+      </section>
+
+      <section class="resume-grid">
+        <h2>Projects & Achievements</h2>
+        <div class="project-note">
+          <p>
+            Hosted Python repositories demonstrating data analysis, API
+            development, and object-oriented programming. Notable projects
+            include <a href="https://github.com/jaegunjung/CAMxtools">CAMxtools</a>,
+            a Python post-processing toolkit with community use in
+            environmental modeling.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
