@@ -1,108 +1,153 @@
+const projects = [
+  {
+    name: 'Crypto Data Analysis',
+    href: 'https://github.com/jaegunjung/cda',
+    description:
+      'Python application for crypto and stock analysis backed by SQL Server workflows and local development tooling.',
+  },
+  {
+    name: 'Django Personal Website',
+    href: 'https://github.com/jaegunjung/jjung_django',
+    description:
+      'Early Django 1.9 personal site with blog, work samples, publications, contact pages, and Azure deployment files.',
+  },
+  {
+    name: 'pyan',
+    href: 'https://github.com/jaegunjung/pyan',
+    description:
+      'Static analysis utility for Python code, adapted from pyan with an option to hide file nodes in graph output.',
+  },
+  {
+    name: 'CAMxtools',
+    href: 'https://github.com/jaegunjung/CAMxtools',
+    description:
+      'Air-quality modeling tools for CAMx and CMAQ data, including combining, metrics, regridding, visibility, and W126 calculations.',
+  },
+  {
+    name: 'leetcode',
+    href: 'https://github.com/jaegunjung/leetcode',
+    description:
+      'Algorithm and data-structure practice repository for interview preparation and problem-solving fluency.',
+  },
+]
+
+const focusAreas = [
+  {
+    name: 'Ops Tooling Platform',
+    description:
+      'Operational tools and validation workflows for reducing pipeline failures and improving reliability.',
+  },
+  {
+    name: 'AWS / ML Learning',
+    description:
+      'Hands-on exploration of cloud architecture, AI-enabled workflows, and scalable machine-learning systems.',
+  },
+]
+
+const skills = [
+  'Python',
+  'SQL',
+  'AWS',
+  'React',
+  'Django',
+  'Data Engineering',
+  'Analytics',
+  'ETL Pipelines',
+  'Machine Learning',
+  'CI/CD',
+]
+
 function App() {
   return (
-    <div
-      style={{
-        fontFamily: "Arial, sans-serif",
-        maxWidth: "900px",
-        margin: "0 auto",
-        padding: "40px",
-        lineHeight: "1.6",
-      }}
-    >
-      <header style={{ marginBottom: "60px" }}>
-        <h1 style={{ fontSize: "48px", marginBottom: "10px" }}>
-          Jaegun Jung
-        </h1>
-
-        <p style={{ fontSize: "22px", color: "#555" }}>
-          Senior Data Engineer
-        </p>
-
-        <p>
-          I build scalable analytics systems, operational tooling,
-          and data pipelines focused on reliability and automation.
-        </p>
-
-        <div style={{ marginTop: "20px" }}>
-          <a href="https://github.com/jaegunjung">
-            GitHub
-          </a>
-          {" | "}
-          <a href="mailto:jjg0412@gmail.com">
-            Email
-          </a>
+    <main className="page-shell">
+      <section className="hero">
+        <div className="hero-copy">
+          <p className="eyebrow">Senior Data Engineer</p>
+          <h1>Jaegun Jung</h1>
+          <p className="lede">
+            I build scalable analytics systems, operational tooling, and data
+            pipelines focused on reliability, automation, and practical AI
+            workflows.
+          </p>
+          <div className="link-row" aria-label="Primary links">
+            <a href="https://github.com/jaegunjung">GitHub</a>
+            <a href="mailto:jjg0412@gmail.com">Email</a>
+            <a href="https://jjg0412.wixsite.com/website">Archive Site</a>
+          </div>
         </div>
-      </header>
 
-      <section style={{ marginBottom: "50px" }}>
-        <h2>About</h2>
-
-        <p>
-          Data engineer with experience in analytics platforms,
-          operations tooling, AWS pipelines, manufacturing systems,
-          and scalable data infrastructure.
-        </p>
-
-        <p>
-          Currently focused on AI-enabled workflows,
-          machine learning systems, and modern data applications.
-        </p>
+        <div className="hero-photos" aria-label="Photos of Jaegun Jung">
+          <img
+            className="portrait"
+            src="/jaegun-portrait.jpg"
+            alt="Jaegun Jung"
+          />
+          <img
+            className="profile-photo"
+            src="/jaegun-profile.jpg"
+            alt="Jaegun Jung profile"
+          />
+        </div>
       </section>
 
-      <section style={{ marginBottom: "50px" }}>
-        <h2>Projects</h2>
-
-        <ul>
-          <li>
-            <strong>Ops Tooling Platform</strong> —
-            Built operational tools and validation workflows
-            to reduce pipeline failures and improve reliability.
-          </li>
-
-          <li>
-            <strong>Crypto Data Analysis</strong> —
-            Python-based crypto and stock analytics project.
-          </li>
-
-          <li>
-            <strong>Django Personal Website</strong> —
-            Early personal website project built with Django.
-          </li>
-
-          <li>
-            <strong>AWS / ML Learning</strong> —
-            Exploring scalable ML systems and cloud architectures.
-          </li>
-        </ul>
+      <section className="section-grid">
+        <div>
+          <h2>About</h2>
+        </div>
+        <div className="copy-stack">
+          <p>
+            Data engineer with experience in analytics platforms, operations
+            tooling, AWS pipelines, manufacturing systems, and scalable data
+            infrastructure.
+          </p>
+          <p>
+            Earlier work includes a Django-based personal site with blog,
+            publications, work samples, and contact pages, reflecting a broader
+            background across Python web applications, data analysis, Linux,
+            CI/CD, and scientific computing.
+          </p>
+        </div>
       </section>
 
-      <section style={{ marginBottom: "50px" }}>
-        <h2>Skills</h2>
-
-        <p>
-          Python, SQL, AWS, React, Django, Data Engineering,
-          Analytics, ETL Pipelines, Machine Learning
-        </p>
-      </section>
-
-      <section>
-        <h2>Links</h2>
-
-        <ul>
-          <li>
-            <a href="https://github.com/jaegunjung/cda">
-              Crypto Data Analysis
+      <section className="section-grid">
+        <div>
+          <h2>Projects</h2>
+        </div>
+        <div className="project-list">
+          {projects.map((project) => (
+            <a className="project-item" href={project.href} key={project.name}>
+              <span>{project.name}</span>
+              <p>{project.description}</p>
             </a>
-          </li>
-
-          <li>
-            <a href="https://github.com/jaegunjung/jjung_django">
-              Old Django Website
-            </a>
-          </li>
-        </ul>
+          ))}
+        </div>
       </section>
-    </div>
+
+      <section className="section-grid">
+        <div>
+          <h2>Current Focus</h2>
+        </div>
+        <div className="focus-list">
+          {focusAreas.map((area) => (
+            <article className="focus-item" key={area.name}>
+              <h3>{area.name}</h3>
+              <p>{area.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-grid">
+        <div>
+          <h2>Skills</h2>
+        </div>
+        <div className="skill-list">
+          {skills.map((skill) => (
+            <span key={skill}>{skill}</span>
+          ))}
+        </div>
+      </section>
+    </main>
   )
 }
 
