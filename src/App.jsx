@@ -47,13 +47,15 @@ const focusAreas = [
 const skills = [
   'Python',
   'SQL',
+  'Spark',
+  'Snowflake',
   'AWS',
-  'React',
-  'Django',
-  'Data Engineering',
-  'Analytics',
-  'ETL Pipelines',
-  'Machine Learning',
+  'SQL Server',
+  'MySQL',
+  'Power BI',
+  'Data Modeling',
+  'ETL Orchestration',
+  'Operational Analytics',
   'CI/CD',
 ]
 
@@ -62,15 +64,16 @@ function App() {
     <main className="page-shell">
       <section className="hero">
         <div className="hero-copy">
-          <p className="eyebrow">Senior Data Engineer</p>
+          <p className="eyebrow">Staff Data Engineer</p>
           <h1>Jaegun Jung</h1>
           <p className="lede">
-            I build scalable analytics systems, operational tooling, and data
-            pipelines focused on reliability, automation, and practical AI
-            workflows.
+            AI-enabled data infrastructure engineer with 15+ years of
+            experience building scalable data platforms, operational analytics,
+            and production-grade ETL pipelines.
           </p>
           <div className="link-row" aria-label="Primary links">
             <a href="https://github.com/jaegunjung">GitHub</a>
+            <a href="/resume.html">Resume</a>
             <a href="mailto:jjg0412@gmail.com">Email</a>
             <a href="https://jjg0412.wixsite.com/website">Archive Site</a>
           </div>
@@ -96,15 +99,16 @@ function App() {
         </div>
         <div className="copy-stack">
           <p>
-            Data engineer with experience in analytics platforms, operations
-            tooling, AWS pipelines, manufacturing systems, and scalable data
-            infrastructure.
+            Staff-level data engineer with experience across cloud and
+            enterprise environments, including Python, SQL, Spark, Snowflake,
+            AWS, SQL Server, MySQL, distributed analytics systems, and
+            operational dashboards.
           </p>
           <p>
-            Earlier work includes a Django-based personal site with blog,
-            publications, work samples, and contact pages, reflecting a broader
-            background across Python web applications, data analysis, Linux,
-            CI/CD, and scientific computing.
+            Recent work includes operational analytics pipelines and dashboards
+            using Meta's internal data ecosystem, large-scale manufacturing data
+            aggregation at Enovix, Python/Django tooling, and scientific
+            post-processing tools used by environmental modeling researchers.
           </p>
         </div>
       </section>
