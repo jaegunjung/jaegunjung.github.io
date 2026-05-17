@@ -1,3 +1,15 @@
+import {
+  SiDjango,
+  SiGithub,
+  SiMysql,
+  SiPython,
+  SiReact,
+  SiSnowflake,
+} from 'react-icons/si'
+import { BiSolidBarChartAlt2 } from 'react-icons/bi'
+import { DiSpark } from 'react-icons/di'
+import { FaAws, FaDatabase } from 'react-icons/fa'
+
 const projects = [
   {
     name: 'Crypto Data Analysis',
@@ -45,18 +57,16 @@ const focusAreas = [
 ]
 
 const skills = [
-  'Python',
-  'SQL',
-  'Spark',
-  'Snowflake',
-  'AWS',
-  'SQL Server',
-  'MySQL',
-  'Power BI',
-  'Data Modeling',
-  'ETL Orchestration',
-  'Operational Analytics',
-  'CI/CD',
+  { name: 'Python', Icon: SiPython },
+  { name: 'AWS', Icon: FaAws },
+  { name: 'Snowflake', Icon: SiSnowflake },
+  { name: 'Spark', Icon: DiSpark },
+  { name: 'SQL Server', Icon: FaDatabase },
+  { name: 'MySQL', Icon: SiMysql },
+  { name: 'Power BI', Icon: BiSolidBarChartAlt2 },
+  { name: 'GitHub', Icon: SiGithub },
+  { name: 'React', Icon: SiReact },
+  { name: 'Django', Icon: SiDjango },
 ]
 
 function App() {
@@ -146,8 +156,11 @@ function App() {
           <h2>Skills</h2>
         </div>
         <div className="skill-list">
-          {skills.map((skill) => (
-            <span key={skill}>{skill}</span>
+          {skills.map(({ name, Icon }) => (
+            <span className="skill-pill" key={name}>
+              <Icon aria-hidden="true" />
+              {name}
+            </span>
           ))}
         </div>
       </section>
