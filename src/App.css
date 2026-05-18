@@ -26,9 +26,9 @@
 
 .hero-panel {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 380px;
-  gap: 36px;
-  align-items: end;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 330px);
+  gap: 24px;
+  align-items: center;
   min-height: 520px;
   padding: 72px 0 56px;
   border-bottom: 1px solid var(--border);
@@ -40,12 +40,10 @@
 }
 
 .hero-photos {
-  position: relative;
-  min-height: 360px;
+  min-height: 0;
 }
 
-.portrait,
-.profile-photo {
+.portrait {
   display: block;
   border: 8px solid var(--surface);
   box-shadow: var(--shadow);
@@ -53,18 +51,16 @@
 }
 
 .portrait {
-  width: min(100%, 300px);
-  margin-left: auto;
+  width: 100%;
+  margin-left: 0;
   aspect-ratio: 0.64;
 }
 
-.profile-photo {
-  position: absolute;
-  left: 8px;
-  bottom: 18px;
-  width: 128px;
-  aspect-ratio: 1;
-  border-radius: 50%;
+.hero-title {
+  max-width: 720px;
+  margin-bottom: 22px;
+  font-size: clamp(44px, 7vw, 76px);
+  line-height: 1.08;
 }
 
 .eyebrow {
@@ -111,10 +107,15 @@
 
 .cert-panel {
   display: grid;
-  gap: 8px;
+  gap: 14px;
   border-left: 4px solid var(--accent-2);
   padding: 22px;
   background: var(--surface);
+}
+
+.cert-item {
+  display: grid;
+  gap: 3px;
 }
 
 .cert-panel span {
@@ -123,8 +124,8 @@
 }
 
 .cert-panel strong {
-  margin-bottom: 10px;
   color: var(--text-h);
+  font-size: 14px;
 }
 
 .section-block {
@@ -270,6 +271,27 @@
   padding-top: 52px;
 }
 
+.resume-header {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.resume-photo {
+  width: 112px;
+  aspect-ratio: 1;
+  border: 6px solid var(--surface);
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--shadow);
+}
+
+.resume-header h1 {
+  margin-bottom: 10px;
+  font-size: clamp(36px, 6vw, 58px);
+}
+
 .resume-page section {
   padding: 30px 0;
   border-top: 1px solid var(--border);
@@ -342,7 +364,6 @@
 
   .hero-photos {
     min-height: auto;
-    padding-bottom: 48px;
   }
 
   .portrait {
@@ -350,10 +371,9 @@
     margin: 0 auto;
   }
 
-  .profile-photo {
-    left: 4px;
-    bottom: 2px;
-    width: min(34vw, 124px);
+  .hero-title {
+    margin-bottom: 18px;
+    font-size: clamp(42px, 15vw, 58px);
   }
 
   .hero-copy {
@@ -372,5 +392,13 @@
 
   .story-summary {
     font-size: 18px;
+  }
+
+  .resume-header {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-photo {
+    width: 96px;
   }
 }

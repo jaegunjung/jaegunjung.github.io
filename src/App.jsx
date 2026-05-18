@@ -208,6 +208,29 @@ const skills = [
   ['Django', SiDjango],
 ]
 
+const certificates = [
+  {
+    name: 'AWS Certified Data Engineer - Associate',
+    issued: 'Oct 2024',
+    expires: 'Oct 2027',
+  },
+  {
+    name: 'AWS Certified Solutions Architect - Associate',
+    issued: 'Mar 2025',
+    expires: 'Mar 2028',
+  },
+  {
+    name: 'Snowflake SnowPro Core',
+    issued: 'Mar 2024',
+    expires: 'Feb 2028',
+  },
+  {
+    name: 'Coursera Machine Learning',
+    issued: 'Oct 2019',
+    expires: 'No expiration',
+  },
+]
+
 const resume = {
   headline: 'Staff Data Engineer | AI-Enabled Data Infrastructure',
   contact: ['Castro Valley, CA', 'jjg0412@gmail.com', 'linkedin.com/in/jgjung', 'github.com/jaegunjung'],
@@ -273,12 +296,7 @@ const resume = {
     'Ph.D., Chemical Engineering, Carnegie Mellon University, Aug 2003 - May 2008',
     'B.S., Chemical Engineering, Hanyang University, Seoul, Korea, Mar 1996 - Feb 2003',
   ],
-  certificates: [
-    'AWS Certified Data Engineer - Associate, issued Oct 2024, expires Oct 2027',
-    'AWS Certified Solutions Architect - Associate, issued Mar 2025, expires Mar 2028',
-    'Snowflake SnowPro Core, issued Mar 2024, expires Feb 2028',
-    'Coursera Machine Learning, issued Oct 2019',
-  ],
+  certificates,
 }
 
 function getHashRoute() {
@@ -320,7 +338,7 @@ function App() {
       <header className="hero-panel">
         <div>
           <p className="eyebrow">AI-enabled data infrastructure engineer</p>
-          <h1>Jaegun Jung</h1>
+          <h1 className="hero-title">Jaegun Jung</h1>
           <p className="hero-copy">
             I solve operational complexity with scalable data systems, scientific
             computing discipline, and practical automation.
@@ -336,13 +354,16 @@ function App() {
         <aside className="hero-media" aria-label="Photos and certifications">
           <div className="hero-photos">
             <img className="portrait" src="/jaegun-portrait.jpg" alt="Jaegun Jung" />
-            <img className="profile-photo" src="/jaegun-profile.jpg" alt="Jaegun Jung profile" />
           </div>
           <div className="cert-panel" aria-label="Certifications">
-            <span>AWS Certified Data Engineer - Associate</span>
-            <strong>Issued Oct 2024</strong>
-            <span>AWS Certified Solutions Architect - Associate</span>
-            <strong>Issued Mar 2025</strong>
+            {certificates.map((certificate) => (
+              <div className="cert-item" key={certificate.name}>
+                <span>{certificate.name}</span>
+                <strong>
+                  Issued {certificate.issued} | Expires {certificate.expires}
+                </strong>
+              </div>
+            ))}
           </div>
         </aside>
       </header>
@@ -450,9 +471,14 @@ function ResumePage() {
     <main className="site-shell story-shell">
       <a className="back-link" href="#">Back to portfolio</a>
       <article className="resume-page">
-        <p className="eyebrow">Resume</p>
-        <h1>Jaegun Jung</h1>
-        <p className="story-summary">{resume.headline}</p>
+        <header className="resume-header">
+          <img className="resume-photo" src="/jaegun-profile.jpg" alt="Jaegun Jung profile" />
+          <div>
+            <p className="eyebrow">Resume</p>
+            <h1>Jaegun Jung</h1>
+            <p className="story-summary">{resume.headline}</p>
+          </div>
+        </header>
         <div className="contact-row">
           {resume.contact.map((item) => (
             <span key={item}>{item}</span>
@@ -502,8 +528,10 @@ function ResumePage() {
         <section>
           <h2>Certifications</h2>
           <ul>
-            {resume.certificates.map((item) => (
-              <li key={item}>{item}</li>
+            {resume.certificates.map((certificate) => (
+              <li key={certificate.name}>
+                {certificate.name}, issued {certificate.issued}, expires {certificate.expires}
+              </li>
             ))}
           </ul>
         </section>
