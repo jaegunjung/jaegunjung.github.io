@@ -194,6 +194,15 @@
   height: 20px;
 }
 
+.evolution-image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  object-fit: cover;
+  background: var(--surface-muted);
+}
+
 .step-count {
   color: var(--accent-2);
   font-size: 13px;

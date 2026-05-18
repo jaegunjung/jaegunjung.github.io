@@ -66,6 +66,8 @@ const evolutionSteps = [
     impact: 'Turned atmospheric simulations into repeatable scientific analysis.',
     tech: ['Python', 'NetCDF', 'CAMx', 'CMAQ'],
     Icon: FaProjectDiagram,
+    image: '/camx-o3-contour.png',
+    imageAlt: 'CAMx ozone contour visualization',
   },
   {
     title: 'Web Application Engineering',
@@ -448,11 +450,14 @@ function App() {
         <p className="eyebrow">Engineering Evolution Map</p>
         <h2>From Scientific Modeling to AI-assisted Data Engineering</h2>
         <div className="evolution-map">
-          {evolutionSteps.map(({ title, subtitle, impact, tech, Icon }, index) => (
+          {evolutionSteps.map(({ title, subtitle, impact, tech, Icon, image, imageAlt }, index) => (
             <article className="evolution-card" key={title}>
               <div className="evolution-icon">
                 <Icon aria-hidden="true" />
               </div>
+              {image && (
+                <img className="evolution-image" src={image} alt={imageAlt} />
+              )}
               <span className="step-count">{String(index + 1).padStart(2, '0')}</span>
               <h3>{title}</h3>
               <p>{subtitle}</p>
