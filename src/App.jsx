@@ -73,11 +73,13 @@ const stories = {
         heading: 'System Built',
         body:
           'I released CAMxtools to automate ground-observation MPE for CAMx and CMAQ, including calculations such as W126 that are tedious and error-prone by hand. The tool helped internal workflows and external researchers, earning 18 GitHub stars and a Starstruck badge.',
+        links: [{ label: 'CAMxtools', href: 'https://github.com/jaegunjung/CAMxtools' }],
       },
       {
         heading: 'Extension',
         body:
           'aircraft_MPE extended the same idea into aircraft-based ozone measurements, enabling performance evaluation with three-dimensional measurement data instead of only surface monitors.',
+        links: [{ label: 'aircraft_MPE', href: 'https://github.com/jaegunjung/aircraft_MPE' }],
       },
     ],
   },
@@ -96,6 +98,7 @@ const stories = {
         heading: 'System Built',
         body:
           'I contributed to a web application using Python Django on the backend and JavaScript and jQuery on the frontend. The tool reduced recovery operations to controlled application workflows instead of manual server-by-server actions.',
+        links: [{ label: 'Django Personal Website', href: 'https://github.com/jaegunjung/jjung_django' }],
       },
       {
         heading: 'What Changed',
@@ -182,7 +185,7 @@ const stories = {
       {
         heading: 'Certifications',
         body:
-          'AWS Certified Data Engineer - Associate issued Oct 2024. AWS Certified Solutions Architect - Associate issued Mar 2025.',
+          'AWS Certified Data Engineer - Associate issued Oct 2024, AWS Certified Solutions Architect - Associate issued Mar 2025, Snowflake SnowPro Core issued Mar 2024, and Coursera Machine Learning issued Oct 2019.',
       },
     ],
   },
@@ -305,6 +308,7 @@ function getHashRoute() {
 
 function App() {
   const [route, setRoute] = useState(getHashRoute)
+  const [expandedJourney, setExpandedJourney] = useState(null)
 
   useEffect(() => {
     const updateRoute = () => setRoute(getHashRoute())
@@ -336,7 +340,7 @@ function App() {
       </nav>
 
       <header className="hero-panel">
-        <div>
+        <div className="hero-intro">
           <p className="eyebrow">AI-enabled data infrastructure engineer</p>
           <h1 className="hero-title">Jaegun Jung</h1>
           <p className="hero-copy">
@@ -384,10 +388,37 @@ function App() {
         <h2>Problem, system, impact</h2>
         <div className="timeline">
           {journey.map(([slug, title, body]) => (
-            <a className="timeline-item" href={`#/stories/${slug}`} key={slug}>
-              <span>{title}</span>
-              <p>{body}</p>
-            </a>
+            <article className="timeline-entry" key={slug}>
+              <button
+                className="timeline-item"
+                type="button"
+                aria-expanded={expandedJourney === slug}
+                onClick={() => setExpandedJourney(expandedJourney === slug ? null : slug)}
+              >
+                <span>{title}</span>
+                <p>{body}</p>
+              </button>
+              {expandedJourney === slug && (
+                <div className="inline-story">
+                  <p>{stories[slug].summary}</p>
+                  {stories[slug].sections.map((section) => (
+                    <section key={section.heading}>
+                      <h3>{section.heading}</h3>
+                      <p>{section.body}</p>
+                      {section.links && (
+                        <div className="inline-links">
+                          {section.links.map((link) => (
+                            <a href={link.href} key={link.href}>
+                              {link.label}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </section>
+                  ))}
+                </div>
+              )}
+            </article>
           ))}
         </div>
       </section>
