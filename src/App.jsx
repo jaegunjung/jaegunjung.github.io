@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
 import {
+  SiCisco,
   SiDjango,
   SiGithub,
+  SiInfosys,
   SiMysql,
   SiPython,
   SiReact,
@@ -9,7 +11,7 @@ import {
 } from 'react-icons/si'
 import { BiSolidBarChartAlt2 } from 'react-icons/bi'
 import { DiSpark } from 'react-icons/di'
-import { FaAws, FaDatabase } from 'react-icons/fa'
+import { FaAws, FaBuilding, FaCarBattery, FaDatabase, FaUniversity } from 'react-icons/fa'
 import './App.css'
 
 const projects = [
@@ -84,10 +86,10 @@ const stories = {
     ],
   },
   cisco: {
-    eyebrow: 'Cisco',
+    eyebrow: 'Cisco via Infosys',
     title: 'Learning Production Software Discipline Through Disaster Recovery Tooling',
     summary:
-      'At Cisco, I moved from scientific computing into enterprise web application development and learned how software quality systems protect production operations.',
+      'At Cisco via Infosys, I moved from scientific computing into enterprise web application development and learned how software quality systems protect production operations.',
     sections: [
       {
         heading: 'Problem',
@@ -103,7 +105,7 @@ const stories = {
       {
         heading: 'What Changed',
         body:
-          'The Cisco environment exposed me to Docker-based cloud transition, automated code quality checks, security testing, unit tests, coverage gates, and release discipline through CI configuration.',
+          'The Cisco via Infosys environment exposed me to Docker-based cloud transition, automated code quality checks, security testing, unit tests, coverage gates, and release discipline through CI configuration.',
       },
     ],
   },
@@ -126,12 +128,12 @@ const stories = {
       {
         heading: 'Operating Model',
         body:
-          'I also introduced practices learned at Cisco, including version control, Jira-based project management, and web application workflows. The Web Uploader, built with Django, Vue, MySQL, and SQL Server integration, replaced Excel macro-driven uploads.',
+          'I also introduced practices learned through Cisco via Infosys, including version control, Jira-based project management, and web application workflows. The Web Uploader, built with Django, Vue, MySQL, and SQL Server integration, replaced Excel macro-driven uploads.',
       },
     ],
   },
   meta: {
-    eyebrow: 'Meta',
+    eyebrow: 'EOS IT Solutions',
     title: 'Reducing Operational Friction Through Scalable Data Tooling',
     summary:
       'My current focus is turning recurring operational pain into reliable validation, automation, and collaboration systems.',
@@ -192,10 +194,30 @@ const stories = {
 }
 
 const journey = [
-  ['cmu-ramboll', 'CMU / Ramboll', 'Scientific modeling, CAMx, CMAQ, MPE, W126, open-source tooling.'],
-  ['cisco', 'Cisco', 'Django web apps, DR tooling, Docker, CI, tests, coverage, release quality.'],
-  ['enovix', 'Enovix', 'Battery data infrastructure, raw ingestion, SQL summaries, Web Uploader.'],
-  ['meta', 'Meta', 'Operational data tooling, validation workflows, AI-enabled systems.'],
+  {
+    slug: 'cmu-ramboll',
+    title: 'CMU / Ramboll',
+    body: 'Scientific modeling, CAMx, CMAQ, MPE, W126, open-source tooling.',
+    icons: [FaUniversity, FaBuilding],
+  },
+  {
+    slug: 'cisco',
+    title: 'Cisco via Infosys',
+    body: 'Django web apps, DR tooling, Docker, CI, tests, coverage, release quality.',
+    icons: [SiCisco, SiInfosys],
+  },
+  {
+    slug: 'enovix',
+    title: 'Enovix',
+    body: 'Battery data infrastructure, raw ingestion, SQL summaries, Web Uploader.',
+    icons: [FaCarBattery],
+  },
+  {
+    slug: 'meta',
+    title: 'EOS IT Solutions',
+    body: 'Operational data tooling, validation workflows, AI-enabled systems.',
+    icons: [FaBuilding],
+  },
 ]
 
 const focus = [
@@ -276,7 +298,7 @@ const resume = {
       dates: 'Apr 2024 - Current',
       location: 'Burlingame, CA',
       bullets: [
-        'Designed and maintained scalable operational analytics pipelines and dashboards using Meta internal data systems including Presto, Hive, and Scuba.',
+        'Designed and maintained scalable operational analytics pipelines and dashboards using large-scale internal data systems including Presto, Hive, and Scuba.',
         'Automated ingestion and validation workflows integrating Google Sheets, scheduled jobs, and internal tooling, reducing manual intervention and pipeline failures by 50% or more.',
         'Accelerated delivery in unfamiliar Hack and React environments through AI-assisted engineering workflows and rapid prototyping.',
       ],
@@ -294,7 +316,7 @@ const resume = {
     },
     {
       role: 'Technical Lead',
-      org: 'Cisco from Infosys',
+      org: 'Cisco via Infosys',
       dates: 'Mar 2018 - Nov 2018',
       location: 'San Jose, CA',
       bullets: [
@@ -406,7 +428,7 @@ function App() {
         <p className="eyebrow">Career Journey</p>
         <h2>Problem, system, impact</h2>
         <div className="timeline">
-          {journey.map(([slug, title, body]) => (
+          {journey.map(({ slug, title, body, icons }) => (
             <article className="timeline-entry" key={slug}>
               <button
                 className="timeline-item"
@@ -414,7 +436,14 @@ function App() {
                 aria-expanded={expandedJourney === slug}
                 onClick={() => setExpandedJourney(expandedJourney === slug ? null : slug)}
               >
-                <span>{title}</span>
+                <span className="timeline-title">
+                  <span className="org-icon-list" aria-hidden="true">
+                    {icons.map((Icon, index) => (
+                      <Icon key={`${slug}-${index}`} />
+                    ))}
+                  </span>
+                  {title}
+                </span>
                 <p>{body}</p>
               </button>
               {expandedJourney === slug && (

@@ -197,6 +197,26 @@
   font-size: 19px;
 }
 
+.timeline-title {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+}
+
+.org-icon-list {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 0 !important;
+  color: var(--accent-strong);
+}
+
+.org-icon-list svg {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+}
+
 .focus-grid {
   display: grid;
   gap: 12px;
