@@ -84,6 +84,8 @@ const evolutionSteps = [
     impact: 'Separated raw ingestion from summaries and made data flows easier to operate.',
     tech: ['SQL Server', 'Snowflake', 'Spark', 'AWS'],
     Icon: FaServer,
+    image: '/enovix-battery-cell.jpg',
+    imageAlt: 'Enovix lithium-ion battery cell',
   },
   {
     title: 'AI-assisted Engineering',
@@ -91,6 +93,8 @@ const evolutionSteps = [
     impact: 'Uses AI to accelerate React, AWS, and data-platform development workflows.',
     tech: ['Claude', 'Codex', 'LLM workflows', 'AI SDLC'],
     Icon: FaRobot,
+    image: '/ai-smart-glasses.jpg',
+    imageAlt: 'Smart glasses camera close-up representing AI-assisted engineering',
   },
 ]
 
