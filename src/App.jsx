@@ -67,7 +67,7 @@ const stories = {
       {
         heading: 'Problem',
         body:
-          'During my Ph.D. work at CMU and later at Ramboll, I worked with CAMx and measurement data to evaluate whether atmospheric models represented observed ozone and related air-quality patterns. The work required repeatable model performance evaluation, not one-off analysis.',
+          'During my Ph.D. work at CMU and later at Ramboll, I worked with CAMx and measurement data to evaluate whether atmospheric models represented observed pollutants such as O3, PM, etc. and related air-quality patterns. The work required repeatable model performance evaluation, not one-off analysis.',
       },
       {
         heading: 'System Built',
