@@ -11,7 +11,7 @@ import {
 } from 'react-icons/si'
 import { BiSolidBarChartAlt2 } from 'react-icons/bi'
 import { DiSpark } from 'react-icons/di'
-import { FaAws, FaBuilding, FaCarBattery, FaDatabase, FaUniversity } from 'react-icons/fa'
+import { FaAws, FaDatabase } from 'react-icons/fa'
 import './App.css'
 
 const projects = [
@@ -198,25 +198,25 @@ const journey = [
     slug: 'cmu-ramboll',
     title: 'CMU / Ramboll',
     body: 'Scientific modeling, CAMx, CMAQ, MPE, W126, open-source tooling.',
-    icons: [FaUniversity, FaBuilding],
+    marks: [{ label: 'CMU' }, { label: 'Ramboll' }],
   },
   {
     slug: 'cisco',
     title: 'Cisco via Infosys',
     body: 'Django web apps, DR tooling, Docker, CI, tests, coverage, release quality.',
-    icons: [SiCisco, SiInfosys],
+    marks: [{ Icon: SiCisco }, { Icon: SiInfosys }],
   },
   {
     slug: 'enovix',
     title: 'Enovix',
     body: 'Battery data infrastructure, raw ingestion, SQL summaries, Web Uploader.',
-    icons: [FaCarBattery],
+    marks: [{ label: 'ENVX' }],
   },
   {
     slug: 'meta',
     title: 'EOS IT Solutions',
     body: 'Operational data tooling, validation workflows, AI-enabled systems.',
-    icons: [FaBuilding],
+    marks: [{ label: 'EOS' }],
   },
 ]
 
@@ -428,7 +428,7 @@ function App() {
         <p className="eyebrow">Career Journey</p>
         <h2>Problem, system, impact</h2>
         <div className="timeline">
-          {journey.map(({ slug, title, body, icons }) => (
+          {journey.map(({ slug, title, body, marks }) => (
             <article className="timeline-entry" key={slug}>
               <button
                 className="timeline-item"
@@ -438,8 +438,10 @@ function App() {
               >
                 <span className="timeline-title">
                   <span className="org-icon-list" aria-hidden="true">
-                    {icons.map((Icon, index) => (
-                      <Icon key={`${slug}-${index}`} />
+                    {marks.map(({ Icon, label }, index) => (
+                      <span className="org-mark" key={`${slug}-${index}`}>
+                        {Icon ? <Icon /> : label}
+                      </span>
                     ))}
                   </span>
                   {title}
