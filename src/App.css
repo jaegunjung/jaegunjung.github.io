@@ -248,7 +248,7 @@
 }
 
 .inline-story > p {
-  max-width: 780px;
+  max-width: none;
   color: var(--muted);
   font-size: 18px;
 }
