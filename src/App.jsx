@@ -216,6 +216,19 @@ const skills = [
   ['Django', SiDjango],
 ]
 
+const resumeSkillIcons = {
+  Python: SiPython,
+  SQL: FaDatabase,
+  Spark: DiSpark,
+  Snowflake: SiSnowflake,
+  AWS: FaAws,
+  'ETL orchestration': FaDatabase,
+  'Data modeling': FaDatabase,
+  'Distributed analytics systems': FaDatabase,
+  'Operational analytics': BiSolidBarChartAlt2,
+  'Power BI': BiSolidBarChartAlt2,
+}
+
 const certificates = [
   {
     name: 'AWS Certified Data Engineer - Associate',
@@ -546,6 +559,9 @@ function ResumePage() {
             <span key={item}>{item}</span>
           ))}
         </div>
+        <a className="button primary resume-download" href="/jaegun-jung-resume-may-2026.docx" download>
+          Download resume
+        </a>
 
         <section>
           <h2>Summary</h2>
@@ -554,10 +570,16 @@ function ResumePage() {
 
         <section>
           <h2>Skills</h2>
-          <div className="compact-list">
-            {resume.skills.map((item) => (
-              <span key={item}>{item}</span>
-            ))}
+          <div className="compact-list resume-skill-list">
+            {resume.skills.map((item) => {
+              const Icon = resumeSkillIcons[item]
+              return (
+                <span className="resume-skill-pill" key={item}>
+                  {Icon && <Icon aria-hidden="true" />}
+                  {item}
+                </span>
+              )
+            })}
           </div>
         </section>
 
@@ -597,6 +619,7 @@ function ResumePage() {
             ))}
           </ul>
         </section>
+        <a className="back-link bottom-back-link" href="#">Back to portfolio</a>
       </article>
     </main>
   )

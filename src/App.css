@@ -316,6 +316,10 @@
   margin-top: 20px;
 }
 
+.resume-download {
+  margin-bottom: 24px;
+}
+
 .story-shell {
   max-width: 860px;
 }
@@ -395,6 +399,22 @@
   font-size: 14px;
 }
 
+.resume-skill-list {
+  margin-bottom: 0;
+}
+
+.resume-skill-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.resume-skill-pill svg {
+  width: 16px;
+  height: 16px;
+  color: var(--accent);
+}
+
 .resume-job {
   display: grid;
   gap: 12px;
@@ -422,6 +442,11 @@
 
 .resume-page li + li {
   margin-top: 8px;
+}
+
+.bottom-back-link {
+  display: inline-flex;
+  margin-top: 24px;
 }
 
 @media (max-width: 860px) {
