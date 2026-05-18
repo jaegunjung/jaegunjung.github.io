@@ -198,6 +198,11 @@ const journey = [
   ['meta', 'Meta', 'Operational data tooling, validation workflows, AI-enabled systems.'],
 ]
 
+const focus = [
+  ['ops-tooling', 'Ops Tooling Platform', 'Validation-first workflows for reducing maintenance and manual coordination.'],
+  ['ml-learning', 'AWS / ML Learning', 'Cloud and ML systems grounded in reliable data infrastructure.'],
+]
+
 const skills = [
   ['Python', SiPython],
   ['AWS', FaAws],
@@ -309,6 +314,7 @@ function getHashRoute() {
 function App() {
   const [route, setRoute] = useState(getHashRoute)
   const [expandedJourney, setExpandedJourney] = useState(null)
+  const [expandedFocus, setExpandedFocus] = useState(null)
 
   useEffect(() => {
     const updateRoute = () => setRoute(getHashRoute())
@@ -356,9 +362,6 @@ function App() {
           </div>
         </div>
         <aside className="hero-media" aria-label="Photos and certifications">
-          <div className="hero-photos">
-            <img className="portrait" src="/jaegun-portrait.jpg" alt="Jaegun Jung" />
-          </div>
           <div className="cert-panel" aria-label="Certifications">
             {certificates.map((certificate) => (
               <div className="cert-item" key={certificate.name}>
@@ -368,6 +371,9 @@ function App() {
                 </strong>
               </div>
             ))}
+          </div>
+          <div className="hero-photos">
+            <img className="portrait" src="/jaegun-portrait.jpg" alt="Jaegun Jung" />
           </div>
         </aside>
       </header>
@@ -427,14 +433,39 @@ function App() {
         <p className="eyebrow">Current Focus</p>
         <h2>Scalable tooling for operational workflows</h2>
         <div className="focus-grid">
-          <a href="#/stories/ops-tooling">
-            <strong>Ops Tooling Platform</strong>
-            <p>Validation-first workflows for reducing maintenance and manual coordination.</p>
-          </a>
-          <a href="#/stories/ml-learning">
-            <strong>AWS / ML Learning</strong>
-            <p>Cloud and ML systems grounded in reliable data infrastructure.</p>
-          </a>
+          {focus.map(([slug, title, body]) => (
+            <article className="focus-entry" key={slug}>
+              <button
+                className="focus-item"
+                type="button"
+                aria-expanded={expandedFocus === slug}
+                onClick={() => setExpandedFocus(expandedFocus === slug ? null : slug)}
+              >
+                <strong>{title}</strong>
+                <p>{body}</p>
+              </button>
+              {expandedFocus === slug && (
+                <div className="inline-story">
+                  <p>{stories[slug].summary}</p>
+                  {stories[slug].sections.map((section) => (
+                    <section key={section.heading}>
+                      <h3>{section.heading}</h3>
+                      <p>{section.body}</p>
+                      {section.links && (
+                        <div className="inline-links">
+                          {section.links.map((link) => (
+                            <a href={link.href} key={link.href}>
+                              {link.label}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </section>
+                  ))}
+                </div>
+              )}
+            </article>
+          ))}
         </div>
       </section>
 
