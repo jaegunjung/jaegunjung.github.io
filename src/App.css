@@ -243,11 +243,22 @@
   padding-top: 52px;
 }
 
+.story-article h1 {
+  max-width: 760px;
+  margin-bottom: 18px;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.16;
+}
+
+.story-article h2 {
+  font-size: clamp(24px, 3vw, 34px);
+}
+
 .story-summary {
   margin-bottom: 42px;
   color: var(--text);
-  font-size: 22px;
-  line-height: 1.4;
+  font-size: 20px;
+  line-height: 1.45;
 }
 
 .story-article section {
@@ -352,5 +363,14 @@
   .focus-grid,
   .project-grid {
     grid-template-columns: 1fr;
+  }
+
+  .story-article h1 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .story-summary {
+    font-size: 18px;
   }
 }
