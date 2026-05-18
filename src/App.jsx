@@ -11,7 +11,7 @@ import {
 } from 'react-icons/si'
 import { BiSolidBarChartAlt2 } from 'react-icons/bi'
 import { DiSpark } from 'react-icons/di'
-import { FaAws, FaDatabase } from 'react-icons/fa'
+import { FaAws, FaCode, FaDatabase, FaProjectDiagram, FaRobot, FaServer } from 'react-icons/fa'
 import './App.css'
 
 const projects = [
@@ -56,6 +56,37 @@ const projects = [
     href: 'https://github.com/jaegunjung/leetcode',
     body:
       'Algorithm and data-structure practice repository for interview preparation and problem-solving fluency.',
+  },
+]
+
+const evolutionSteps = [
+  {
+    title: 'Scientific Modeling',
+    subtitle: 'CAMx, CMAQ, pollutant MPE',
+    impact: 'Turned atmospheric simulations into repeatable scientific analysis.',
+    tech: ['Python', 'NetCDF', 'CAMx', 'CMAQ'],
+    Icon: FaProjectDiagram,
+  },
+  {
+    title: 'Web Application Engineering',
+    subtitle: 'Django and disaster recovery tooling',
+    impact: 'Moved operational actions from manual runbooks into controlled web workflows.',
+    tech: ['Django', 'JavaScript', 'Docker', 'CI/CD'],
+    Icon: FaCode,
+  },
+  {
+    title: 'Data Infrastructure',
+    subtitle: 'Reliable pipelines and operational analytics',
+    impact: 'Separated raw ingestion from summaries and made data flows easier to operate.',
+    tech: ['SQL Server', 'Snowflake', 'Spark', 'AWS'],
+    Icon: FaServer,
+  },
+  {
+    title: 'AI-assisted Engineering',
+    subtitle: 'Claude, Codex, and modern SDLC',
+    impact: 'Uses AI to accelerate React, AWS, and data-platform development workflows.',
+    tech: ['Claude', 'Codex', 'LLM workflows', 'AI SDLC'],
+    Icon: FaRobot,
   },
 ]
 
@@ -412,6 +443,39 @@ function App() {
           </div>
         </aside>
       </header>
+
+      <section className="section-block visual-section">
+        <p className="eyebrow">Engineering Evolution Map</p>
+        <h2>From Scientific Modeling to AI-assisted Data Engineering</h2>
+        <div className="evolution-map">
+          {evolutionSteps.map(({ title, subtitle, impact, tech, Icon }, index) => (
+            <article className="evolution-card" key={title}>
+              <div className="evolution-icon">
+                <Icon aria-hidden="true" />
+              </div>
+              <span className="step-count">{String(index + 1).padStart(2, '0')}</span>
+              <h3>{title}</h3>
+              <p>{subtitle}</p>
+              <strong>{impact}</strong>
+              <div className="evolution-tags">
+                {tech.map((item) => (
+                  <span key={item}>{item}</span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+        <div className="before-after" aria-label="Before and after system redesign">
+          <div>
+            <span>Before</span>
+            <p>Excel macros, manual uploads, fragile jobs, weekend firefighting.</p>
+          </div>
+          <div>
+            <span>After</span>
+            <p>Validated web uploaders, reliable ingestion, SQL aggregation, operational visibility.</p>
+          </div>
+        </div>
+      </section>
 
       <section id="about" className="section-block">
         <p className="eyebrow">About</p>

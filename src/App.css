@@ -142,6 +142,114 @@
   font-size: 18px;
 }
 
+.visual-section h2 {
+  max-width: 760px;
+}
+
+.evolution-map {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.evolution-card {
+  position: relative;
+  display: grid;
+  gap: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  background:
+    linear-gradient(145deg, rgba(29, 111, 115, 0.08), transparent 44%),
+    var(--surface);
+}
+
+.evolution-card::after {
+  content: '';
+  position: absolute;
+  top: 44px;
+  right: -13px;
+  width: 13px;
+  border-top: 1px solid var(--accent);
+}
+
+.evolution-card:last-child::after {
+  content: none;
+}
+
+.evolution-icon {
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+}
+
+.evolution-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.step-count {
+  color: var(--accent-2);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.evolution-card h3 {
+  font-size: 19px;
+}
+
+.evolution-card p {
+  color: var(--muted);
+}
+
+.evolution-card strong {
+  color: var(--text-h);
+  line-height: 1.35;
+}
+
+.evolution-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.evolution-tags span {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 7px;
+  color: var(--accent-strong);
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.before-after {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.before-after div {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px;
+  background: var(--surface-muted);
+}
+
+.before-after span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--accent-2);
+  font-weight: 900;
+}
+
 .timeline {
   display: grid;
   gap: 12px;
@@ -528,6 +636,15 @@
 
   .cert-panel {
     grid-template-columns: 1fr;
+  }
+
+  .evolution-map,
+  .before-after {
+    grid-template-columns: 1fr;
+  }
+
+  .evolution-card::after {
+    content: none;
   }
 
   .project-grid {
