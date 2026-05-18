@@ -75,6 +75,8 @@ const evolutionSteps = [
     impact: 'Moved operational actions from manual runbooks into controlled web workflows.',
     tech: ['Django', 'JavaScript', 'Docker', 'CI/CD'],
     Icon: FaCode,
+    image: '/django-webapp.png',
+    imageAlt: 'Python and Django web application icon',
   },
   {
     title: 'Data Infrastructure',
