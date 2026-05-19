@@ -1,17 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
-import {
-  SiCisco,
-  SiDjango,
-  SiGithub,
-  SiInfosys,
-  SiMysql,
-  SiPython,
-  SiReact,
-  SiSnowflake,
-} from 'react-icons/si'
+import { SiDjango, SiGithub, SiMysql, SiPython, SiReact, SiSnowflake } from 'react-icons/si'
 import { BiSolidBarChartAlt2 } from 'react-icons/bi'
 import { DiSpark } from 'react-icons/di'
-import { FaAws, FaCode, FaDatabase, FaProjectDiagram, FaRobot, FaServer } from 'react-icons/fa'
+import { FaAws, FaDatabase } from 'react-icons/fa'
 import './App.css'
 
 const projects = [
@@ -66,10 +57,12 @@ const evolutionSteps = [
     subtitle: 'CAMx, CMAQ, pollutant MPE',
     impact: 'Turned atmospheric simulations into repeatable scientific analysis.',
     tech: ['Python', 'NetCDF', 'CAMx', 'CMAQ'],
-    Icon: FaProjectDiagram,
     image: '/camx-o3-contour.png',
     imageAlt: 'CAMx ozone contour visualization',
-    marks: [{ label: 'CMU' }, { label: 'Ramboll' }],
+    marks: [
+      { src: '/logos/cmu-logo.jfif', alt: 'Carnegie Mellon University' },
+      { src: '/logos/ramboll-logo.jfif', alt: 'Ramboll' },
+    ],
   },
   {
     storySlug: 'cisco',
@@ -77,32 +70,29 @@ const evolutionSteps = [
     subtitle: 'Django and disaster recovery tooling',
     impact: 'Moved operational actions from manual runbooks into controlled web workflows.',
     tech: ['Django', 'JavaScript', 'Docker', 'CI/CD'],
-    Icon: FaCode,
     image: '/django-webapp.png',
     imageAlt: 'Python and Django web application icon',
-    marks: [{ Icon: SiCisco }, { Icon: SiInfosys }],
+    marks: [{ label: 'Cisco' }, { src: '/logos/infosys-logo.jfif', alt: 'Infosys' }],
   },
   {
     storySlug: 'enovix',
     title: 'Data Infrastructure',
     subtitle: 'Reliable pipelines and operational analytics',
     impact: 'Separated raw ingestion from summaries and made data flows easier to operate.',
-    tech: ['SQL Server', 'MySQL', 'Snowflake', 'AWS'],
-    Icon: FaServer,
+    tech: ['SQL Server', 'MySQL', 'Snowflake', 'SDLC'],
     image: '/enovix-battery-cell.jpg',
     imageAlt: 'Enovix lithium-ion battery cell',
-    marks: [{ label: 'ENVX' }],
+    marks: [{ src: '/logos/enovix-logo.jfif', alt: 'Enovix' }],
   },
   {
     storySlug: 'meta',
     title: 'AI-assisted Engineering',
     subtitle: 'Claude, Codex, and modern SDLC',
     impact: 'Uses AI to accelerate React, AWS, and data-platform development workflows.',
-    tech: ['Claude', 'Codex', 'LLM workflows', 'AI SDLC'],
-    Icon: FaRobot,
+    tech: ['Claude', 'Codex', 'LLM workflows', 'AWS'],
     image: '/ai-smart-glasses.jpg',
     imageAlt: 'Smart glasses camera close-up representing AI-assisted engineering',
-    marks: [{ label: 'EOS' }],
+    marks: [{ src: '/logos/eos-logo.jfif', alt: 'EOS IT Solutions' }],
   },
 ]
 
@@ -276,25 +266,25 @@ const certificates = [
     name: 'AWS Certified Data Engineer - Associate',
     issued: 'Oct 2024',
     expires: 'Oct 2027',
-    href: 'https://www.linkedin.com/in/jgjung/',
+    href: 'https://www.credly.com/badges/9e75a92f-1351-44e8-b11d-7a4fe81ca30e',
   },
   {
     name: 'AWS Certified Solutions Architect - Associate',
     issued: 'Mar 2025',
     expires: 'Mar 2028',
-    href: 'https://www.linkedin.com/in/jgjung/',
+    href: 'https://www.credly.com/badges/b1f75260-7fcc-45e5-a906-e436128a82a2',
   },
   {
     name: 'Snowflake SnowPro Core',
     issued: 'Mar 2024',
     expires: 'Feb 2028',
-    href: 'https://www.linkedin.com/in/jgjung/',
+    href: 'https://achieve.snowflake.com/cc3d37d4-a1a5-4039-b2aa-b8936a6783fe#acc.utTnzboF',
   },
   {
     name: 'Coursera Machine Learning',
     issued: 'Oct 2019',
     expires: 'No expiration',
-    href: 'https://www.coursera.org/account/accomplishments/certificate/LD972MEPJ28V',
+    href: 'https://www.coursera.org/account/accomplishments/verify/LD972MEPJ28V',
   },
 ]
 
@@ -401,6 +391,7 @@ function App() {
         <a href="#projects">Projects</a>
         <a href="#/resume">Resume</a>
         <a href="https://github.com/jaegunjung">GitHub</a>
+        <a href="https://www.linkedin.com/in/jgjung/">LinkedIn</a>
       </nav>
 
       <header className="hero-panel">
@@ -446,7 +437,7 @@ function App() {
           make complex work repeatable, observable, and easier for teams to run.
         </p>
         <div className="evolution-map">
-          {evolutionSteps.map(({ storySlug, title, subtitle, impact, tech, Icon, image, imageAlt, marks }, index) => {
+          {evolutionSteps.map(({ storySlug, title, subtitle, impact, tech, image, imageAlt, marks }, index) => {
             const story = stories[storySlug]
             const isFlipped = Boolean(flippedEvolution[storySlug])
             return (
@@ -465,15 +456,12 @@ function App() {
                   >
                     <span className="step-count">{String(index + 1).padStart(2, '0')}</span>
                     <span className="org-icon-list" aria-hidden="true">
-                      {marks.map(({ Icon: MarkIcon, label }, markIndex) => (
+                      {marks.map(({ src, alt, label }, markIndex) => (
                         <span className="org-mark" key={`${storySlug}-${markIndex}`}>
-                          {MarkIcon ? <MarkIcon /> : label}
+                          {src ? <img src={src} alt={alt} /> : label}
                         </span>
                       ))}
                     </span>
-                    <div className="evolution-icon">
-                      <Icon aria-hidden="true" />
-                    </div>
                     {image && (
                       <img className="evolution-image" src={image} alt={imageAlt} />
                     )}
