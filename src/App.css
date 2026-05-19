@@ -158,6 +158,8 @@
   margin-top: 16px;
   color: var(--muted);
   font-size: 19px;
+  text-align: justify;
+  text-align-last: left;
 }
 
 .evolution-map {
@@ -199,8 +201,9 @@
 
 .evolution-front {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr;
   gap: 12px;
+  align-content: start;
   color: var(--text);
   text-align: left;
   font: inherit;
@@ -235,24 +238,26 @@
   font-weight: 900;
 }
 
-.evolution-front > .step-count,
-.evolution-front > .org-icon-list {
-  grid-row: 1;
-  align-self: center;
-}
-
 .evolution-front > .step-count {
-  grid-column: 1;
+  grid-column: 1 / -1;
 }
 
 .evolution-front > .org-icon-list {
-  grid-column: 2;
+  grid-column: 1 / -1;
   justify-self: start;
 }
 
 .evolution-card h3 {
   grid-column: 1 / -1;
   font-size: 19px;
+}
+
+.front-story-title {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--text-h);
+  font-size: 16px;
+  line-height: 1.25;
 }
 
 .evolution-card p {
@@ -276,17 +281,23 @@
   grid-column: 1 / -1;
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
   gap: 6px;
 }
 
 .evolution-tags span {
+  display: inline-flex;
+  flex: 0 0 auto;
+  width: fit-content;
   border: 1px solid var(--border);
   border-radius: 6px;
-  padding: 4px 7px;
+  padding: 3px 6px;
   color: var(--accent-strong);
   background: rgba(255, 255, 255, 0.7);
   font-size: 12px;
   font-weight: 800;
+  line-height: 1;
 }
 
 .evolution-back-content {
@@ -381,31 +392,31 @@
 .org-icon-list {
   display: inline-flex !important;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   margin-bottom: 0 !important;
 }
 
 .org-mark {
   display: inline-flex !important;
-  min-width: 40px;
-  height: 28px;
+  min-width: 76px;
+  height: 58px;
   margin-bottom: 0 !important;
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(29, 111, 115, 0.2);
   border-radius: 6px;
-  padding: 2px 6px;
+  padding: 5px 8px;
   color: var(--accent-strong) !important;
   background: var(--surface-muted);
-  font-size: 11px !important;
+  font-size: 14px !important;
   font-weight: 900;
   line-height: 1;
   letter-spacing: 0;
 }
 
 .org-mark img {
-  max-width: 58px;
-  max-height: 20px;
+  max-width: 116px;
+  max-height: 44px;
   flex: 0 0 auto;
   object-fit: contain;
 }

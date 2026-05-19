@@ -266,13 +266,13 @@ const certificates = [
     name: 'AWS Certified Data Engineer - Associate',
     issued: 'Oct 2024',
     expires: 'Oct 2027',
-    href: 'https://www.credly.com/badges/9e75a92f-1351-44e8-b11d-7a4fe81ca30e',
+    href: 'https://www.credly.com/badges/b1f75260-7fcc-45e5-a906-e436128a82a2',
   },
   {
     name: 'AWS Certified Solutions Architect - Associate',
     issued: 'Mar 2025',
     expires: 'Mar 2028',
-    href: 'https://www.credly.com/badges/b1f75260-7fcc-45e5-a906-e436128a82a2',
+    href: 'https://www.credly.com/badges/9e75a92f-1351-44e8-b11d-7a4fe81ca30e',
   },
   {
     name: 'Snowflake SnowPro Core',
@@ -454,7 +454,7 @@ function App() {
                       }))
                     }
                   >
-                    <span className="step-count">{String(index + 1).padStart(2, '0')}</span>
+                    <span className="step-count">{index + 1}</span>
                     <span className="org-icon-list" aria-hidden="true">
                       {marks.map(({ src, alt, label }, markIndex) => (
                         <span className="org-mark" key={`${storySlug}-${markIndex}`}>
@@ -466,6 +466,7 @@ function App() {
                       <img className="evolution-image" src={image} alt={imageAlt} />
                     )}
                     <h3>{title}</h3>
+                    <h4 className="front-story-title">{story.title}</h4>
                     <p>{subtitle}</p>
                     <strong>{story.summary}</strong>
                     <div className="evolution-tags">
@@ -497,7 +498,6 @@ function App() {
                         }
                       }}
                     >
-                      <h3>{story.title}</h3>
                       <div className="card-story-sections">
                         {story.sections.map((section) => (
                           <section key={section.heading}>
