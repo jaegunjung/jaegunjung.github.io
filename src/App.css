@@ -153,7 +153,7 @@
   max-width: none;
 }
 
-.section-block > .section-lede {
+.section-block > p.section-lede {
   max-width: none;
   width: 100%;
   margin-top: 16px;
@@ -542,6 +542,11 @@
 
 .resume-block {
   border-bottom: 0;
+}
+
+.section-block.resume-block > p {
+  max-width: none;
+  width: 100%;
 }
 
 .resume-block .button {
