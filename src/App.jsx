@@ -625,7 +625,7 @@ function StoryPage({ story }) {
 
 function ResumePage() {
   return (
-    <main className="site-shell story-shell">
+    <main className="site-shell story-shell resume-shell">
       <a className="back-link" href="#">Back to portfolio</a>
       <article className="resume-page">
         <header className="resume-header">
