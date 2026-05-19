@@ -119,6 +119,13 @@
 .cert-item {
   display: grid;
   gap: 3px;
+  border-radius: 6px;
+  padding: 4px;
+  text-decoration: none;
+}
+
+.cert-item:hover {
+  background: var(--surface-muted);
 }
 
 .cert-panel span {
@@ -143,11 +150,11 @@
 }
 
 .visual-section h2 {
-  max-width: 760px;
+  max-width: none;
 }
 
 .section-lede {
-  max-width: 900px;
+  max-width: none;
   margin-top: 16px;
   color: var(--muted);
   font-size: 19px;
@@ -192,6 +199,7 @@
 
 .evolution-front {
   display: grid;
+  grid-template-columns: auto 1fr;
   gap: 12px;
   color: var(--text);
   text-align: left;
@@ -213,6 +221,7 @@
 
 .evolution-icon {
   display: inline-flex;
+  grid-column: 1 / -1;
   width: 42px;
   height: 42px;
   align-items: center;
@@ -228,6 +237,7 @@
 }
 
 .evolution-image {
+  grid-column: 1 / -1;
   width: 100%;
   aspect-ratio: 16 / 10;
   border: 1px solid var(--border);
@@ -242,16 +252,34 @@
   font-weight: 900;
 }
 
+.evolution-front > .step-count,
+.evolution-front > .org-icon-list {
+  grid-row: 1;
+  align-self: center;
+}
+
+.evolution-front > .step-count {
+  grid-column: 1;
+}
+
+.evolution-front > .org-icon-list {
+  grid-column: 2;
+  justify-self: start;
+}
+
 .evolution-card h3 {
+  grid-column: 1 / -1;
   font-size: 19px;
 }
 
 .evolution-card p {
+  grid-column: 1 / -1;
   color: var(--muted);
 }
 
 .evolution-card strong,
 .evolution-card small {
+  grid-column: 1 / -1;
   color: var(--text-h);
   line-height: 1.35;
 }
@@ -262,6 +290,7 @@
 }
 
 .evolution-tags {
+  grid-column: 1 / -1;
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
@@ -277,16 +306,9 @@
   font-weight: 800;
 }
 
-.flip-back {
-  justify-self: start;
-  min-height: 34px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 0 10px;
-  color: var(--accent-strong);
-  background: var(--surface-muted);
-  font: inherit;
-  font-weight: 800;
+.evolution-back-content {
+  display: grid;
+  gap: 14px;
   cursor: pointer;
 }
 
@@ -310,12 +332,6 @@
 
 .card-story-sections p {
   color: var(--muted);
-}
-
-.card-before-after {
-  background: var(--surface-muted);
-  border-radius: 8px;
-  padding: 14px;
 }
 
 .timeline {

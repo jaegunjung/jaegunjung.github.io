@@ -87,7 +87,7 @@ const evolutionSteps = [
     title: 'Data Infrastructure',
     subtitle: 'Reliable pipelines and operational analytics',
     impact: 'Separated raw ingestion from summaries and made data flows easier to operate.',
-    tech: ['SQL Server', 'Snowflake', 'Spark', 'AWS'],
+    tech: ['SQL Server', 'MySQL', 'Snowflake', 'AWS'],
     Icon: FaServer,
     image: '/enovix-battery-cell.jpg',
     imageAlt: 'Enovix lithium-ion battery cell',
@@ -276,21 +276,25 @@ const certificates = [
     name: 'AWS Certified Data Engineer - Associate',
     issued: 'Oct 2024',
     expires: 'Oct 2027',
+    href: 'https://www.linkedin.com/in/jgjung/',
   },
   {
     name: 'AWS Certified Solutions Architect - Associate',
     issued: 'Mar 2025',
     expires: 'Mar 2028',
+    href: 'https://www.linkedin.com/in/jgjung/',
   },
   {
     name: 'Snowflake SnowPro Core',
     issued: 'Mar 2024',
     expires: 'Feb 2028',
+    href: 'https://www.linkedin.com/in/jgjung/',
   },
   {
     name: 'Coursera Machine Learning',
     issued: 'Oct 2019',
     expires: 'No expiration',
+    href: 'https://www.coursera.org/account/accomplishments/certificate/LD972MEPJ28V',
   },
 ]
 
@@ -418,12 +422,12 @@ function App() {
         <aside className="hero-media" aria-label="Photos and certifications">
           <div className="cert-panel" aria-label="Certifications">
             {certificates.map((certificate) => (
-              <div className="cert-item" key={certificate.name}>
+              <a className="cert-item" href={certificate.href} key={certificate.name}>
                 <span>{certificate.name}</span>
                 <strong>
                   Issued {certificate.issued} | Expires {certificate.expires}
                 </strong>
-              </div>
+              </a>
             ))}
           </div>
           <div className="hero-photos">
@@ -485,42 +489,44 @@ function App() {
                   </button>
 
                   <div className="evolution-face evolution-back">
-                    <button
-                      className="flip-back"
-                      type="button"
+                    <div
+                      className="evolution-back-content"
+                      role="button"
+                      tabIndex={0}
                       onClick={() =>
                         setFlippedEvolution((current) => ({
                           ...current,
                           [storySlug]: false,
                         }))
                       }
+                      onKeyDown={(event) => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                          event.preventDefault()
+                          setFlippedEvolution((current) => ({
+                            ...current,
+                            [storySlug]: false,
+                          }))
+                        }
+                      }}
                     >
-                      Back to card
-                    </button>
-                    <h3>{story.title}</h3>
-                    <div className="card-story-sections">
-                      {story.sections.map((section) => (
-                        <section key={section.heading}>
-                          <h4>{section.heading}</h4>
-                          <p>{section.body}</p>
-                          {section.links && (
-                            <div className="inline-links">
-                              {section.links.map((link) => (
-                                <a href={link.href} key={link.href}>
-                                  {link.label}
-                                </a>
-                              ))}
-                            </div>
-                          )}
-                        </section>
-                      ))}
-                      {storySlug === 'enovix' && (
-                        <section className="card-before-after">
-                          <h4>Before / After</h4>
-                          <p>Before: Excel macros, manual uploads, fragile jobs, weekend firefighting.</p>
-                          <p>After: validated web uploaders, reliable ingestion, SQL aggregation, operational visibility.</p>
-                        </section>
-                      )}
+                      <h3>{story.title}</h3>
+                      <div className="card-story-sections">
+                        {story.sections.map((section) => (
+                          <section key={section.heading}>
+                            <h4>{section.heading}</h4>
+                            <p>{section.body}</p>
+                            {section.links && (
+                              <div className="inline-links">
+                                {section.links.map((link) => (
+                                  <a href={link.href} key={link.href}>
+                                    {link.label}
+                                  </a>
+                                ))}
+                              </div>
+                            )}
+                          </section>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -702,7 +708,7 @@ function ResumePage() {
           <ul>
             {resume.certificates.map((certificate) => (
               <li key={certificate.name}>
-                {certificate.name}, issued {certificate.issued}, expires {certificate.expires}
+                <a href={certificate.href}>{certificate.name}</a>, issued {certificate.issued}, expires {certificate.expires}
               </li>
             ))}
           </ul>
