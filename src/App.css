@@ -171,7 +171,7 @@
 
 .evolution-card {
   position: relative;
-  min-height: 640px;
+  min-height: 560px;
   perspective: 1600px;
 }
 
@@ -189,7 +189,7 @@
 .evolution-face {
   grid-area: 1 / 1;
   width: 100%;
-  min-height: 640px;
+  min-height: 560px;
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 20px;
@@ -302,30 +302,38 @@
 
 .evolution-back-content {
   display: grid;
-  gap: 14px;
+  gap: 10px;
+  font-size: 12.5px;
+  line-height: 1.35;
   cursor: pointer;
 }
 
 .card-story-sections {
   display: grid;
-  gap: 14px;
+  gap: 10px;
 }
 
 .card-story-sections section {
   display: grid;
-  gap: 7px;
+  gap: 5px;
   border-top: 1px solid var(--border);
-  padding-top: 14px;
+  padding-top: 10px;
+}
+
+.card-story-sections section:first-child {
+  border-top: 0;
+  padding-top: 0;
 }
 
 .card-story-sections h4 {
   margin: 0;
   color: var(--text-h);
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .card-story-sections p {
   color: var(--muted);
+  font-size: 12.5px;
 }
 
 .timeline {
