@@ -235,6 +235,11 @@ const focus = [
   ['ml-learning', 'AWS / ML Learning', 'Cloud and ML systems grounded in reliable data infrastructure.'],
 ]
 
+const newTabProps = {
+  target: '_blank',
+  rel: 'noreferrer',
+}
+
 const skills = [
   ['Python', SiPython],
   ['AWS', FaAws],
@@ -387,11 +392,11 @@ function App() {
   return (
     <main className="site-shell">
       <nav className="top-nav" aria-label="Primary navigation">
-        <a href="#evolution">Journey</a>
-        <a href="#projects">Projects</a>
-        <a href="#/resume">Resume</a>
-        <a href="https://github.com/jaegunjung">GitHub</a>
-        <a href="https://www.linkedin.com/in/jgjung/">LinkedIn</a>
+        <a href="#evolution" {...newTabProps}>Journey</a>
+        <a href="#projects" {...newTabProps}>Projects</a>
+        <a href="#/resume" {...newTabProps}>Resume</a>
+        <a href="https://github.com/jaegunjung" {...newTabProps}>GitHub</a>
+        <a href="https://www.linkedin.com/in/jgjung/" {...newTabProps}>LinkedIn</a>
       </nav>
 
       <header className="hero-panel">
@@ -403,9 +408,9 @@ function App() {
             computing discipline, and practical automation.
           </p>
           <div className="hero-actions">
-            <a className="button primary" href="#evolution">Career story</a>
-            <a className="button" href="#projects">Selected projects</a>
-            <a className="button" href="/jaegun-jung-resume-may-2026.docx" download>
+            <a className="button primary" href="#evolution" {...newTabProps}>Career story</a>
+            <a className="button" href="#projects" {...newTabProps}>Selected projects</a>
+            <a className="button" href="/jaegun-jung-resume-may-2026.docx" download {...newTabProps}>
               Download resume
             </a>
           </div>
@@ -413,7 +418,7 @@ function App() {
         <aside className="hero-media" aria-label="Photos and certifications">
           <div className="cert-panel" aria-label="Certifications">
             {certificates.map((certificate) => (
-              <a className="cert-item" href={certificate.href} key={certificate.name}>
+              <a className="cert-item" href={certificate.href} key={certificate.name} {...newTabProps}>
                 <span>{certificate.name}</span>
                 <strong>
                   Issued {certificate.issued} | Expires {certificate.expires}
@@ -506,7 +511,7 @@ function App() {
                             {section.links && (
                               <div className="inline-links">
                                 {section.links.map((link) => (
-                                  <a href={link.href} key={link.href}>
+                                  <a href={link.href} key={link.href} {...newTabProps}>
                                     {link.label}
                                   </a>
                                 ))}
@@ -549,7 +554,7 @@ function App() {
                       {section.links && (
                         <div className="inline-links">
                           {section.links.map((link) => (
-                            <a href={link.href} key={link.href}>
+                            <a href={link.href} key={link.href} {...newTabProps}>
                               {link.label}
                             </a>
                           ))}
@@ -569,7 +574,7 @@ function App() {
         <h2>Open-source and applied systems</h2>
         <div className="project-grid">
           {projects.map((project) => (
-            <a className="project-card" href={project.href} key={project.title}>
+            <a className="project-card" href={project.href} key={project.title} {...newTabProps}>
               <span>{project.tag}</span>
               <strong>{project.title}</strong>
               <p>{project.body}</p>
@@ -598,7 +603,7 @@ function App() {
           A dedicated web resume is available with the May 2026 summary, work
           history, education, certifications, and AI workflow focus.
         </p>
-        <a className="button primary" href="#/resume">Open resume</a>
+        <a className="button primary" href="#/resume" {...newTabProps}>Open resume</a>
       </section>
     </main>
   )
@@ -607,7 +612,7 @@ function App() {
 function StoryPage({ story }) {
   return (
     <main className="site-shell story-shell">
-      <a className="back-link" href="#">Back to portfolio</a>
+      <a className="back-link" href="#" {...newTabProps}>Back to portfolio</a>
       <article className="story-article">
         <p className="eyebrow">{story.eyebrow}</p>
         <h1>{story.title}</h1>
@@ -626,7 +631,7 @@ function StoryPage({ story }) {
 function ResumePage() {
   return (
     <main className="site-shell story-shell resume-shell">
-      <a className="back-link" href="#">Back to portfolio</a>
+      <a className="back-link" href="#" {...newTabProps}>Back to portfolio</a>
       <article className="resume-page">
         <header className="resume-header">
           <img className="resume-photo" src="/jaegun-profile.jpg" alt="Jaegun Jung profile" />
@@ -641,7 +646,7 @@ function ResumePage() {
             <span key={item}>{item}</span>
           ))}
         </div>
-        <a className="button primary resume-download" href="/jaegun-jung-resume-may-2026.docx" download>
+        <a className="button primary resume-download" href="/jaegun-jung-resume-may-2026.docx" download {...newTabProps}>
           Download resume
         </a>
 
@@ -696,12 +701,12 @@ function ResumePage() {
           <ul>
             {resume.certificates.map((certificate) => (
               <li key={certificate.name}>
-                <a href={certificate.href}>{certificate.name}</a>, issued {certificate.issued}, expires {certificate.expires}
+                <a href={certificate.href} {...newTabProps}>{certificate.name}</a>, issued {certificate.issued}, expires {certificate.expires}
               </li>
             ))}
           </ul>
         </section>
-        <a className="back-link bottom-back-link" href="#">Back to portfolio</a>
+        <a className="back-link bottom-back-link" href="#" {...newTabProps}>Back to portfolio</a>
       </article>
     </main>
   )
