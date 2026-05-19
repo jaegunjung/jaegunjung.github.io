@@ -61,6 +61,7 @@ const projects = [
 
 const evolutionSteps = [
   {
+    storySlug: 'cmu-ramboll',
     title: 'Scientific Modeling',
     subtitle: 'CAMx, CMAQ, pollutant MPE',
     impact: 'Turned atmospheric simulations into repeatable scientific analysis.',
@@ -68,8 +69,10 @@ const evolutionSteps = [
     Icon: FaProjectDiagram,
     image: '/camx-o3-contour.png',
     imageAlt: 'CAMx ozone contour visualization',
+    marks: [{ label: 'CMU' }, { label: 'Ramboll' }],
   },
   {
+    storySlug: 'cisco',
     title: 'Web Application Engineering',
     subtitle: 'Django and disaster recovery tooling',
     impact: 'Moved operational actions from manual runbooks into controlled web workflows.',
@@ -77,8 +80,10 @@ const evolutionSteps = [
     Icon: FaCode,
     image: '/django-webapp.png',
     imageAlt: 'Python and Django web application icon',
+    marks: [{ Icon: SiCisco }, { Icon: SiInfosys }],
   },
   {
+    storySlug: 'enovix',
     title: 'Data Infrastructure',
     subtitle: 'Reliable pipelines and operational analytics',
     impact: 'Separated raw ingestion from summaries and made data flows easier to operate.',
@@ -86,8 +91,10 @@ const evolutionSteps = [
     Icon: FaServer,
     image: '/enovix-battery-cell.jpg',
     imageAlt: 'Enovix lithium-ion battery cell',
+    marks: [{ label: 'ENVX' }],
   },
   {
+    storySlug: 'meta',
     title: 'AI-assisted Engineering',
     subtitle: 'Claude, Codex, and modern SDLC',
     impact: 'Uses AI to accelerate React, AWS, and data-platform development workflows.',
@@ -95,6 +102,7 @@ const evolutionSteps = [
     Icon: FaRobot,
     image: '/ai-smart-glasses.jpg',
     imageAlt: 'Smart glasses camera close-up representing AI-assisted engineering',
+    marks: [{ label: 'EOS' }],
   },
 ]
 
@@ -232,33 +240,6 @@ const stories = {
   },
 }
 
-const journey = [
-  {
-    slug: 'cmu-ramboll',
-    title: 'CMU / Ramboll',
-    body: 'Scientific modeling, CAMx, CMAQ, MPE, W126, open-source tooling.',
-    marks: [{ label: 'CMU' }, { label: 'Ramboll' }],
-  },
-  {
-    slug: 'cisco',
-    title: 'Cisco via Infosys',
-    body: 'Django web apps, DR tooling, Docker, CI, tests, coverage, release quality.',
-    marks: [{ Icon: SiCisco }, { Icon: SiInfosys }],
-  },
-  {
-    slug: 'enovix',
-    title: 'Enovix',
-    body: 'Battery data infrastructure, raw ingestion, SQL summaries, Web Uploader.',
-    marks: [{ label: 'ENVX' }],
-  },
-  {
-    slug: 'meta',
-    title: 'EOS IT Solutions',
-    body: 'Operational data tooling, validation workflows, AI-enabled systems.',
-    marks: [{ label: 'EOS' }],
-  },
-]
-
 const focus = [
   ['ops-tooling', 'Ops Tooling Platform', 'Validation-first workflows for reducing maintenance and manual coordination.'],
   ['ml-learning', 'AWS / ML Learning', 'Cloud and ML systems grounded in reliable data infrastructure.'],
@@ -387,8 +368,8 @@ function getHashRoute() {
 
 function App() {
   const [route, setRoute] = useState(getHashRoute)
-  const [expandedJourney, setExpandedJourney] = useState(null)
   const [expandedFocus, setExpandedFocus] = useState(null)
+  const [flippedEvolution, setFlippedEvolution] = useState({})
 
   useEffect(() => {
     const updateRoute = () => setRoute(getHashRoute())
@@ -412,8 +393,7 @@ function App() {
   return (
     <main className="site-shell">
       <nav className="top-nav" aria-label="Primary navigation">
-        <a href="#about">About</a>
-        <a href="#journey">Journey</a>
+        <a href="#evolution">Journey</a>
         <a href="#projects">Projects</a>
         <a href="#/resume">Resume</a>
         <a href="https://github.com/jaegunjung">GitHub</a>
@@ -428,7 +408,7 @@ function App() {
             computing discipline, and practical automation.
           </p>
           <div className="hero-actions">
-            <a className="button primary" href="#journey">Career story</a>
+            <a className="button primary" href="#evolution">Career story</a>
             <a className="button" href="#projects">Selected projects</a>
             <a className="button" href="/jaegun-jung-resume-may-2026.docx" download>
               Download resume
@@ -452,99 +432,101 @@ function App() {
         </aside>
       </header>
 
-      <section className="section-block visual-section">
+      <section id="evolution" className="section-block visual-section">
         <p className="eyebrow">Engineering Evolution Map</p>
         <h2>From Scientific Modeling to AI-assisted Data Engineering</h2>
-        <div className="evolution-map">
-          {evolutionSteps.map(({ title, subtitle, impact, tech, Icon, image, imageAlt }, index) => (
-            <article className="evolution-card" key={title}>
-              <div className="evolution-icon">
-                <Icon aria-hidden="true" />
-              </div>
-              {image && (
-                <img className="evolution-image" src={image} alt={imageAlt} />
-              )}
-              <span className="step-count">{String(index + 1).padStart(2, '0')}</span>
-              <h3>{title}</h3>
-              <p>{subtitle}</p>
-              <strong>{impact}</strong>
-              <div className="evolution-tags">
-                {tech.map((item) => (
-                  <span key={item}>{item}</span>
-                ))}
-              </div>
-            </article>
-          ))}
-        </div>
-        <div className="before-after" aria-label="Before and after system redesign">
-          <div>
-            <span>Before</span>
-            <p>Excel macros, manual uploads, fragile jobs, weekend firefighting.</p>
-          </div>
-          <div>
-            <span>After</span>
-            <p>Validated web uploaders, reliable ingestion, SQL aggregation, operational visibility.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="about" className="section-block">
-        <p className="eyebrow">About</p>
-        <h2>From atmospheric simulation to production data platforms</h2>
-        <p>
+        <p className="section-lede">
           My career connects chemical engineering, scientific modeling, web
           applications, cloud transition, manufacturing data systems, and
           operational data tooling. The common thread is building systems that
           make complex work repeatable, observable, and easier for teams to run.
         </p>
-      </section>
+        <div className="evolution-map">
+          {evolutionSteps.map(({ storySlug, title, subtitle, impact, tech, Icon, image, imageAlt, marks }, index) => {
+            const story = stories[storySlug]
+            const isFlipped = Boolean(flippedEvolution[storySlug])
+            return (
+              <article className={`evolution-card ${isFlipped ? 'is-flipped' : ''}`} key={title}>
+                <div className="evolution-card-inner">
+                  <button
+                    className="evolution-face evolution-front"
+                    type="button"
+                    aria-pressed={isFlipped}
+                    onClick={() =>
+                      setFlippedEvolution((current) => ({
+                        ...current,
+                        [storySlug]: !current[storySlug],
+                      }))
+                    }
+                  >
+                    <span className="step-count">{String(index + 1).padStart(2, '0')}</span>
+                    <span className="org-icon-list" aria-hidden="true">
+                      {marks.map(({ Icon: MarkIcon, label }, markIndex) => (
+                        <span className="org-mark" key={`${storySlug}-${markIndex}`}>
+                          {MarkIcon ? <MarkIcon /> : label}
+                        </span>
+                      ))}
+                    </span>
+                    <div className="evolution-icon">
+                      <Icon aria-hidden="true" />
+                    </div>
+                    {image && (
+                      <img className="evolution-image" src={image} alt={imageAlt} />
+                    )}
+                    <h3>{title}</h3>
+                    <p>{subtitle}</p>
+                    <strong>{story.summary}</strong>
+                    <div className="evolution-tags">
+                      {tech.map((item) => (
+                        <span key={item}>{item}</span>
+                      ))}
+                    </div>
+                    <small>{impact}</small>
+                  </button>
 
-      <section id="journey" className="section-block">
-        <p className="eyebrow">Career Journey</p>
-        <h2>Problem, system, impact</h2>
-        <div className="timeline">
-          {journey.map(({ slug, title, body, marks }) => (
-            <article className="timeline-entry" key={slug}>
-              <button
-                className="timeline-item"
-                type="button"
-                aria-expanded={expandedJourney === slug}
-                onClick={() => setExpandedJourney(expandedJourney === slug ? null : slug)}
-              >
-                <span className="timeline-title">
-                  <span className="org-icon-list" aria-hidden="true">
-                    {marks.map(({ Icon, label }, index) => (
-                      <span className="org-mark" key={`${slug}-${index}`}>
-                        {Icon ? <Icon /> : label}
-                      </span>
-                    ))}
-                  </span>
-                  {title}
-                </span>
-                <p>{body}</p>
-              </button>
-              {expandedJourney === slug && (
-                <div className="inline-story">
-                  <p>{stories[slug].summary}</p>
-                  {stories[slug].sections.map((section) => (
-                    <section key={section.heading}>
-                      <h3>{section.heading}</h3>
-                      <p>{section.body}</p>
-                      {section.links && (
-                        <div className="inline-links">
-                          {section.links.map((link) => (
-                            <a href={link.href} key={link.href}>
-                              {link.label}
-                            </a>
-                          ))}
-                        </div>
+                  <div className="evolution-face evolution-back">
+                    <button
+                      className="flip-back"
+                      type="button"
+                      onClick={() =>
+                        setFlippedEvolution((current) => ({
+                          ...current,
+                          [storySlug]: false,
+                        }))
+                      }
+                    >
+                      Back to card
+                    </button>
+                    <h3>{story.title}</h3>
+                    <div className="card-story-sections">
+                      {story.sections.map((section) => (
+                        <section key={section.heading}>
+                          <h4>{section.heading}</h4>
+                          <p>{section.body}</p>
+                          {section.links && (
+                            <div className="inline-links">
+                              {section.links.map((link) => (
+                                <a href={link.href} key={link.href}>
+                                  {link.label}
+                                </a>
+                              ))}
+                            </div>
+                          )}
+                        </section>
+                      ))}
+                      {storySlug === 'enovix' && (
+                        <section className="card-before-after">
+                          <h4>Before / After</h4>
+                          <p>Before: Excel macros, manual uploads, fragile jobs, weekend firefighting.</p>
+                          <p>After: validated web uploaders, reliable ingestion, SQL aggregation, operational visibility.</p>
+                        </section>
                       )}
-                    </section>
-                  ))}
+                    </div>
+                  </div>
                 </div>
-              )}
-            </article>
-          ))}
+              </article>
+            )
+          })}
         </div>
       </section>
 
