@@ -48,13 +48,6 @@ const projects = [
     body:
       'Static analysis utility for Python code, adapted from pyan with an option to hide file nodes in graph output.',
   },
-  {
-    title: 'leetcode',
-    tag: 'Practice',
-    href: 'https://github.com/jaegunjung/leetcode',
-    body:
-      'Algorithm and data-structure practice repository for interview preparation and problem-solving fluency.',
-  },
 ]
 
 const evolutionSteps = [
