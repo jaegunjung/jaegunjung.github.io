@@ -7,6 +7,13 @@ import './App.css'
 
 const projects = [
   {
+    title: 'S&P 500 Market Analysis',
+    tag: 'Finance · Market Research',
+    href: 'https://jaegunjung.github.io/finance',
+    body:
+      'Century-long S&P 500 trend channel analysis with real (CPI-adjusted) prices, interactive log-scale chart, phase annotations, and auto-updated monthly data.',
+  },
+  {
     title: 'CAMxtools',
     tag: 'Scientific computing',
     href: 'https://github.com/jaegunjung/CAMxtools',
